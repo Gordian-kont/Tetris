@@ -10,7 +10,7 @@ Block::Block()
 	{
 		for (int j = 0; j < 20; ++j)
 		{
-			grid[i][j] = false;//ÅÐ¶Ïµ±Ç°¸ñ×ÓÊÇ·ñÎª·½¿é£¬trueÊÇ£¬false²»ÊÇ         
+			grid[i][j] = false;//åˆ¤æ–­å½“å‰æ ¼å­æ˜¯å¦ä¸ºæ–¹å—ï¼Œtrueæ˜¯ï¼Œfalseä¸æ˜¯         
 		}
 	}
 	for (int i = 0; i < 10; ++i)
@@ -36,7 +36,7 @@ void Block::Create()
 	rotate_srand = rand() %2;
 	switch (key)
 	{
-	case 0://Ö±ÏßÐÍ
+	case 0://ç›´çº¿åž‹
 		arrays.clear();
 		arrays.emplace_back(Point(6, 3));
 		arrays.emplace_back(Point(5, 3));
@@ -47,14 +47,14 @@ void Block::Create()
 			MoveUp();
 		}
 		break;
-	case 1://Ìï×ÖÐÍ
+	case 1://ç”°å­—åž‹
 		arrays.clear();
 		arrays.emplace_back(Point(6, 2));
 		arrays.emplace_back(Point(7, 2));
 		arrays.emplace_back(Point(6, 3));
 		arrays.emplace_back(Point(7, 3));
 		break;
-	case 2://Õý7×ÖÐÍ
+	case 2://æ­£7å­—åž‹
 		arrays.clear();
 		arrays.emplace_back(Point(6, 2));
 		arrays.emplace_back(Point(7, 2));
@@ -65,7 +65,7 @@ void Block::Create()
 			MoveUp();
 		}
 		break;
-	case 3://·´7×ÖÐÍ
+	case 3://å7å­—åž‹
 		arrays.clear();
 		arrays.emplace_back(Point(6, 2));
 		arrays.emplace_back(Point(6, 3));
@@ -76,7 +76,7 @@ void Block::Create()
 			MoveUp();
 		}
 		break;
-	case 4://ÕýÌÝÐÍ
+	case 4://æ­£æ¢¯åž‹
 		arrays.clear();
 		arrays.emplace_back(Point(7, 3));
 		arrays.emplace_back(Point(6, 3));
@@ -87,7 +87,7 @@ void Block::Create()
 			MoveUp();
 		}
 		break;
-	case 5://·´ÌÝÐÍ
+	case 5://åæ¢¯åž‹
 		arrays.clear();
 		arrays.emplace_back(Point(7, 3));
 		arrays.emplace_back(Point(8, 3));
@@ -98,7 +98,7 @@ void Block::Create()
 			MoveUp();
 		}
 		break;
-	case 6://TÐÍ
+	case 6://Tåž‹
 		arrays.clear();
 		arrays.emplace_back(Point(6, 3));
 		arrays.emplace_back(Point(5, 3));
@@ -112,7 +112,7 @@ void Block::Create()
 	}
 }
 
-void Block::MoveUp()//Ðý×ªº¯Êý ÕâÀïÓ¦¸Ã»¹Òª¿¼ÂÇÒ»×ÖÐÍµÈ·½¿éÔÚ±ß½ç¸½½üÊÇ·ñ¿ÉÒÔÐý×ªµÄÎÊÌâ£¬µ«ÎÒÀÁ
+void Block::MoveUp()//æ—‹è½¬å‡½æ•° è¿™é‡Œåº”è¯¥è¿˜è¦è€ƒè™‘ä¸€å­—åž‹ç­‰æ–¹å—åœ¨è¾¹ç•Œé™„è¿‘æ˜¯å¦å¯ä»¥æ—‹è½¬çš„é—®é¢˜ï¼Œä½†æˆ‘æ‡’
 {
 	for (auto& point : arrays)
 	{
@@ -128,7 +128,7 @@ void Block::MoveUp()//Ðý×ªº¯Êý ÕâÀïÓ¦¸Ã»¹Òª¿¼ÂÇÒ»×ÖÐÍµÈ·½¿éÔÚ±ß½ç¸½½üÊÇ·ñ¿ÉÒÔÐý×
 	InitBlock();
 }
 
-void Block::MoveRight()//ÓÒÒÆ
+void Block::MoveRight()//å³ç§»
 {	
 	bool flag = true;
 	for (int i = 0; i < 4; ++i)
@@ -155,7 +155,7 @@ void Block::MoveRight()//ÓÒÒÆ
 	}	
 }
 
-void Block::MoveLeft()//×óÒÆ
+void Block::MoveLeft()//å·¦ç§»
 {
 	bool flag = true;
 	for (int i = 0; i < 4; ++i)
@@ -182,7 +182,7 @@ void Block::MoveLeft()//×óÒÆ
 	}
 }
 
-void Block::MoveDown()//ÏÂ½µ
+void Block::MoveDown()//ä¸‹é™
 {
 	bool flag = IsBlock();
 	if (flag == false)
@@ -201,7 +201,7 @@ void Block::MoveDown()//ÏÂ½µ
 	
 }
 
-void Block::BlockStop()//·½¿éÍ£Ö¹²¢¼ì²âÏûÐÐ
+void Block::BlockStop()//æ–¹å—åœæ­¢å¹¶æ£€æµ‹æ¶ˆè¡Œ
 {
 	for (int i = 0; i < 4; ++i)
 	{
@@ -227,6 +227,7 @@ void Block::BlockStop()//·½¿éÍ£Ö¹²¢¼ì²âÏûÐÐ
 				grid[n][m] = grid[n][m-1];
 			}
 		}
+		**j++;** //è¿™æ˜¯åŽæ¥ä¿®æ”¹çš„ï¼Œå¯ä»¥åŒæ—¶æ¶ˆé™¤å¤šè¡Œ
 	}
 	SetColor(13);
 	for (int i = 0; i < 10; ++i)
@@ -236,7 +237,7 @@ void Block::BlockStop()//·½¿éÍ£Ö¹²¢¼ì²âÏûÐÐ
 			if (grid[i][j] == true)
 			{
 				SetCursorPosition(i + 2, j + 2);				
-				std::cout << "¡ö";
+				std::cout << "â– ";
 			}
 			else
 			{
@@ -247,7 +248,7 @@ void Block::BlockStop()//·½¿éÍ£Ö¹²¢¼ì²âÏûÐÐ
 	}
 }
 
-bool Block::IsBlock()//ÅÐ¶ÏÏÂ·½ÊÇ·ñ·½¿é
+bool Block::IsBlock()//åˆ¤æ–­ä¸‹æ–¹æ˜¯å¦æ–¹å—
 {
 	for (int i = 0; i < 4; ++i)
 	{
@@ -262,7 +263,7 @@ bool Block::IsBlock()//ÅÐ¶ÏÏÂ·½ÊÇ·ñ·½¿é
 bool Block::Direction()
 {
 	char ch;
-	if (_kbhit()) //ÅÐ¶ÏÊÇ·ñÓÐ¼ü±»°´ÏÂ
+	if (_kbhit()) //åˆ¤æ–­æ˜¯å¦æœ‰é”®è¢«æŒ‰ä¸‹
 	{
 		ch = _getch();
 		switch (ch)
@@ -297,7 +298,7 @@ bool Block::Direction()
 	return true;
 }
 
-bool Block::IsTop() //ÅÐ¶ÏÊÇ·ñÓÐ·½¿éµ½¶¥
+bool Block::IsTop() //åˆ¤æ–­æ˜¯å¦æœ‰æ–¹å—åˆ°é¡¶
 {
 	for (int i = 0; i < 10; ++i)
 	{
